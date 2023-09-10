@@ -17,6 +17,7 @@
 		9391B3742AAE4C8F00E486A3 /* AdvancedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B3732AAE4C8E00E486A3 /* AdvancedMapView.swift */; };
 		9391B3762AAE534E00E486A3 /* MoreAdvancedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B3752AAE534E00E486A3 /* MoreAdvancedMapView.swift */; };
 		9391B3782AAE55C500E486A3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B3772AAE55C500E486A3 /* Location.swift */; };
+		9391B37A2AAE65AC00E486A3 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B3792AAE65AC00E486A3 /* Notification+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		9391B3732AAE4C8E00E486A3 /* AdvancedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMapView.swift; sourceTree = "<group>"; };
 		9391B3752AAE534E00E486A3 /* MoreAdvancedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAdvancedMapView.swift; sourceTree = "<group>"; };
 		9391B3772AAE55C500E486A3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		9391B3792AAE65AC00E486A3 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				936E635D2AAE3F3A008A4B33 /* HomeView.swift */,
 				936E635F2AAE3FE0008A4B33 /* HomeViewModel.swift */,
 				9391B3772AAE55C500E486A3 /* Location.swift */,
+				9391B3792AAE65AC00E486A3 /* Notification+Extension.swift */,
 				936E634F2AAE2C44008A4B33 /* Assets.xcassets */,
 				936E63512AAE2C44008A4B33 /* Preview Content */,
 			);
@@ -163,6 +166,7 @@
 				936E634C2AAE2C40008A4B33 /* MapKitWithSwiftUiApp.swift in Sources */,
 				9391B3722AAE4C8100E486A3 /* SimpleMapView.swift in Sources */,
 				936E63602AAE3FE0008A4B33 /* HomeViewModel.swift in Sources */,
+				9391B37A2AAE65AC00E486A3 /* Notification+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

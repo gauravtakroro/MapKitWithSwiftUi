@@ -11,7 +11,7 @@ import CoreLocation
 
 struct MoreAdvancedMapView: View {
     public var locations = [
-       Location(name: "Swaminarayan Akshardham Temple, Delhi", coordinate: CLLocationCoordinate2D(latitude: 28.6172, longitude: 77.2075)),
+       Location(name: "Swaminarayan Akshardham Temple, New Delhi, Delhi", coordinate: CLLocationCoordinate2D(latitude: 28.6127, longitude: 77.2773)),
        Location(name: "Qutub Minar, Seth Sarai, Mehrauli, New Delhi, Delhi", coordinate: CLLocationCoordinate2D(latitude: 28.5244, longitude: 77.1852)),
        Location(name: "The Red Fort, Lal Qila, Netaji Subhash Marg, Delhi", coordinate: CLLocationCoordinate2D(latitude: 28.656473, longitude: 77.242943))
        ]
@@ -24,6 +24,7 @@ struct MoreAdvancedMapView: View {
                 ForEach(0...locations.count-1, id: \.self) { index in
                     Button {
                         print("location Tapped \(locations[index])")
+                        NotificationCenter.default.post(name: .reCenterMapLocation, object: nil, userInfo: [NotificationData.reCenterMapLocationData: locations[index]])
                     } label: {
                         Text(locations[index].name)
                             .foregroundColor(Color.white)
@@ -107,11 +108,24 @@ struct MapViewAsMoreAdvancedView: UIViewRepresentable {
            
            init(_ control: MapViewAsMoreAdvancedView) {
                self.mapView = control
+               super.init()
                print("init")
+               NotificationCenter.default.addObserver(self, selector: #selector(updateMap), name: .reCenterMapLocation, object: nil)
            }
            
            deinit {
                print("deinit")
+               NotificationCenter.default.removeObserver(self, name: .reCenterMapLocation, object: nil)
+           }
+           
+           @objc func updateMap(notification: NSNotification) {
+               guard let userInfo = notification.userInfo, let locationData = userInfo[NotificationData.reCenterMapLocationData] else {
+                   return
+               }
+               if let locationDataValue = locationData as? Location  {
+                   let mapRegion1 = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locationDataValue.coordinate.latitude, longitude: locationDataValue.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                   mkMapView?.setRegion(mapRegion1, animated: true)
+               }
            }
            
            public func mapView(_ mkMap: MKMapView, didSelect view: MKAnnotationView) {
