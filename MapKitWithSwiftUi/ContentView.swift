@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+   
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
+            Image("small_icon")
+               
             Text("Integration of Map with SwiftUI")
+            Button {
+                print("Tap me to Launch Simple MapView Tapped")
+            } label: {
+                Text("Tap me to Launch Simple MapView").underline()
+            }.padding(.vertical, 20)
+            Button {
+                print("Tap me to Launch Simple MapView Tapped")
+            } label: {
+                Text("Tap me to Launch Advanced MapView").underline()
+            }.padding(.vertical, 20)
         }
-        .padding()
     }
 }
 
