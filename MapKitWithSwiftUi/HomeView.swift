@@ -18,7 +18,7 @@ struct HomeView: View {
         } else if viewModel.moveToNextViewType == .moveToAdvancedMapView {
             return AnyView(AdvancedMapView()).edgesIgnoringSafeArea(.all)
         } else if viewModel.moveToNextViewType == .moveToMoreAdvancedMapView {
-            return AnyView(AdvancedMapView()).edgesIgnoringSafeArea(.all)
+            return AnyView(MoreAdvancedMapView()).edgesIgnoringSafeArea(.all)
         } else {
             return AnyView(HomeView()).edgesIgnoringSafeArea(.all)
         }
