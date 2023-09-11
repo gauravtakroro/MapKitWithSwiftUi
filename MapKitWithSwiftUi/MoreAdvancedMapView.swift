@@ -130,6 +130,11 @@ struct MapViewAsMoreAdvancedView: UIViewRepresentable {
            
            public func mapView(_ mkMap: MKMapView, didSelect view: MKAnnotationView) {
                print("tapCallback didSelect \(view.center) \(String(describing: (view.value(forKey: "annotation") as? MKAnnotation)?.coordinate))")
+               if let annotation = view.value(forKey: "annotation") as? MKAnnotation {
+                   let coordinate1 = annotation.coordinate
+                   let mapRegion1 = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinate1.latitude, longitude: coordinate1.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                   mkMapView?.setRegion(mapRegion1, animated: true)
+               }
                self.mapView.tapCallback?(view)
            }
            
